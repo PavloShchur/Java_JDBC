@@ -1,4 +1,4 @@
-import Utils.ConnectionConfiguration;
+import utils.ConnectionConfiguration;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ public class Application {
         Connection connection = null;
 
         try{
-            connection = ConnectionConfiguration.getConnection();
+            connection = ConnectionConfiguration.getInstance().getConnection();
             if(connection != null) {
                 System.out.println("Connection established.");
             }
