@@ -1,4 +1,6 @@
-package utils;
+package utils.dbConnection;
+
+import utils.Constants;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-import utils.ConnectionConfiguration;
+import utils.dbConnection.ConnectionConfiguration;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -10,7 +10,7 @@ public class Application {
 
         try{
             connection = ConnectionConfiguration.getInstance().getConnection();
-            if(connection != null) {
+            if(connection != null && !connection.isClosed()) {
                 System.out.println("Connection established.");
             }
         } catch(Exception e) {
@@ -19,6 +19,9 @@ public class Application {
             if(connection != null) {
                 try {
                     connection.close();
+                    if(connection.isClosed()) {
+                        System.out.println("Connection is closed.");
+                    }
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
